@@ -1,0 +1,85 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: AGPL-3.0-only · Copyright (C) 2026 pozdromaciek — https://github.com/pozdromaciek/game-lib-sh (additional terms: NOTICE) -->
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6b6a70">
+  <title>Moja kolekcja – instalacja</title>
+  <link rel="icon" href="/static/icon.svg">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/themes.css">
+</head>
+<body>
+  <div class="login setup">
+    <form id="f" novalidate>
+      <div class="hd"><span data-t="title">MOJA KOLEKCJA — INSTALACJA</span><span class="stepno" id="stepNo"></span></div>
+      <div class="bd">
+        <div class="langs" role="group" aria-label="Język / Language">
+          <button type="button" class="btn light" data-lang="pl">Polski</button>
+          <button type="button" class="btn light" data-lang="en">English</button>
+        </div>
+
+        <section data-step="code">
+          <h3 data-t="welcome">Cześć! Zaczynamy</h3>
+          <p class="hint" data-t="codeInfo">Żeby nikt inny w sieci nie przejął świeżej instalacji, wpisz kod z logów kontenera:</p>
+          <pre class="cmd">docker logs moja-kolekcja</pre>
+          <label class="f"><span data-t="codeLbl">Kod instalacji</span>
+            <input id="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCD-EFGH" maxlength="12">
+          </label>
+        </section>
+
+        <section data-step="password" hidden>
+          <h3 data-t="pwTitle">Hasło do aplikacji</h3>
+          <p class="hint" data-t="pwInfo">Jedno hasło chroni całą kolekcję. Co najmniej 8 znaków.</p>
+          <label class="f"><span data-t="pw1">Hasło</span><input type="password" id="pw1" autocomplete="new-password"></label>
+          <label class="f"><span data-t="pw2">Powtórz hasło</span><input type="password" id="pw2" autocomplete="new-password"></label>
+        </section>
+
+        <section data-step="igdb" hidden>
+          <h3 data-t="igdbTitle">Klucze IGDB (wymagane)</h3>
+          <p class="hint" data-t="igdbInfo">IGDB to baza gier od Twitcha — stąd apka bierze tytuły, okładki i zdjęcia konsol. Klucze są darmowe.</p>
+          <ol class="howto">
+            <li data-t="igdb1">Zaloguj się na <a href="https://dev.twitch.tv/console" target="_blank" rel="noopener">dev.twitch.tv/console</a> (konto Twitch z włączonym logowaniem dwuetapowym).</li>
+            <li data-t="igdb2">„Register Your Application”: dowolna nazwa, OAuth Redirect URL <code>http://localhost</code>, kategoria „Application Integration”, typ klienta „Confidential”.</li>
+            <li data-t="igdb3">„Manage” → skopiuj <b>Client ID</b>, potem „New Secret” → skopiuj <b>Client Secret</b>.</li>
+          </ol>
+          <label class="f">Client ID<input id="igdbId" autocomplete="off" spellcheck="false"></label>
+          <label class="f">Client Secret<input type="password" id="igdbSecret" autocomplete="off" spellcheck="false"></label>
+          <button type="button" class="btn light" id="igdbTest" data-t="test">Sprawdź klucze</button>
+          <p class="ok-msg" id="igdbOk"></p>
+        </section>
+
+        <section data-step="ebay" hidden>
+          <h3 data-t="ebayTitle">Klucze eBay (opcjonalne)</h3>
+          <p class="hint" data-t="ebayInfo">Z eBaya apka liczy sugerowaną cenę gier i konsol. Możesz to pominąć i dodać później w Menu → Narzędzia → Klucze API.</p>
+          <ol class="howto">
+            <li data-t="ebay1">Załóż darmowe konto na <a href="https://developer.ebay.com/" target="_blank" rel="noopener">developer.ebay.com</a>.</li>
+            <li data-t="ebay2">„Application Keys” → utwórz zestaw <b>Production</b>. eBay zapyta o powiadomienia o usuwaniu kont — wybierz zwolnienie (apka nie przechowuje danych użytkowników eBay).</li>
+            <li data-t="ebay3">Skopiuj <b>App ID (Client ID)</b> i <b>Cert ID (Client Secret)</b>.</li>
+          </ol>
+          <label class="f">App ID (Client ID)<input id="ebayId" autocomplete="off" spellcheck="false"></label>
+          <label class="f">Cert ID (Client Secret)<input type="password" id="ebaySecret" autocomplete="off" spellcheck="false"></label>
+          <p class="ok-msg" id="ebayOk"></p>
+        </section>
+
+        <section data-step="done" hidden>
+          <h3 data-t="doneTitle">Gotowe do startu</h3>
+          <ul class="summary" id="summary"></ul>
+          <p class="hint" data-t="doneInfo">Klucze i hasło zmienisz później w Menu → Narzędzia. Kopia zapasowa robi się sama co noc.</p>
+        </section>
+
+        <div class="err-msg" id="err" role="alert"></div>
+        <div class="acts">
+          <button type="button" class="btn light" id="back" data-t="back" hidden>Wstecz</button>
+          <span class="spacer"></span>
+          <button type="button" class="btn light" id="skip" data-t="skip" hidden>Pomiń</button>
+          <button type="submit" class="btn crs" id="next">Dalej</button>
+        </div>
+      </div>
+    </form>
+    <p class="setupfoot">Moja kolekcja · © pozdromaciek · <a href="https://github.com/pozdromaciek/game-lib-sh" target="_blank" rel="noopener">GitHub</a> · AGPL-3.0</p>
+  </div>
+  <script src="/static/setup.js"></script>
+</body>
+</html>

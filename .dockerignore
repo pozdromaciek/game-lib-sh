@@ -1,0 +1,10 @@
+.git
+.github
+.env
+docs
+*.md
+!README.md
+**/__pycache__
+*.pyc
+*.tar.gz
+data/

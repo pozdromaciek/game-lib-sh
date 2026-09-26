@@ -1,0 +1,160 @@
+/* SPDX-License-Identifier: AGPL-3.0-only · Copyright (C) 2026 pozdromaciek — https://github.com/pozdromaciek/game-lib-sh (additional terms: NOTICE) */
+/* ===== Wygląd całej apki: html[data-theme] = (brak) PS1 | lcd | crt ===== */
+
+/* ---------- LCD: 4 odcienie zieleni jak ekran Game Boya ---------- */
+html[data-theme=lcd]{
+  --case:#8bac0f; --case2:#7b9b0e; --case3:#6a8a0c; --dark:#306230; --dark2:#0f380f;
+  --paper:#9bbc0f; --field:#a7c61c; --ink:#0f380f; --muted:#306230; --line:#306230; --dots:#7b9b0e;
+  --tri:#306230; --cir:#0f380f; --crs:#306230; --sqr:#306230; --loan:#0f380f; --warn:#306230; --grey:#4d7a2a;
+  --lcd-hi:#c4dd4a;
+}
+html[data-theme=lcd] body{background:var(--case);text-shadow:1px 1px 0 rgba(15,56,15,.12)}
+/* siatka pikseli na całym ekranie */
+html[data-theme=lcd] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;
+  background:repeating-linear-gradient(0deg,rgba(15,56,15,.07) 0 1px,transparent 1px 3px),
+             repeating-linear-gradient(90deg,rgba(15,56,15,.05) 0 1px,transparent 1px 3px)}
+html[data-theme=lcd] .top{background:var(--dark2);box-shadow:inset 0 -4px 0 #081f08;color:var(--paper)}
+html[data-theme=lcd] .logo{color:var(--paper)}
+html[data-theme=lcd] .sym b{color:var(--paper)!important}
+html[data-theme=lcd] .vents{background:repeating-linear-gradient(90deg,#306230 0 6px,transparent 6px 12px)}
+html[data-theme=lcd] .lcdwrap{background:#081f08}
+html[data-theme=lcd] .btn{color:var(--paper);background:var(--dark);border-color:var(--ink);text-shadow:none;
+  box-shadow:inset 1px 1px 0 rgba(196,221,74,.35),inset -1px -2px 0 rgba(0,0,0,.35)}
+html[data-theme=lcd] .btn.cir,html[data-theme=lcd] .btn.sqr{background:var(--ink)}
+html[data-theme=lcd] .btn.light{background:var(--field);color:var(--ink)}
+html[data-theme=lcd] .chip[aria-pressed=true],html[data-theme=lcd] .ktabs button[aria-pressed=true],
+html[data-theme=lcd] .seg button[aria-pressed=true],html[data-theme=lcd] .toast,html[data-theme=lcd] .tip{color:var(--paper)}
+html[data-theme=lcd] .manual .hd,html[data-theme=lcd] .dh,html[data-theme=lcd] .kl,html[data-theme=lcd] .chd,html[data-theme=lcd] .cch{background:var(--ink);color:var(--paper)}
+html[data-theme=lcd] .manual .hd .x,html[data-theme=lcd] .dh .x{color:var(--paper)}
+html[data-theme=lcd] label.f,html[data-theme=lcd] div.f .flabel{color:var(--ink)}
+html[data-theme=lcd] .cart{box-shadow:inset 0 2px 0 rgba(196,221,74,.5),0 2px 0 var(--case3)}
+html[data-theme=lcd] .cart .lbl{border-left-color:var(--ink)!important}
+html[data-theme=lcd] .card{box-shadow:0 2px 0 var(--case3)}
+html[data-theme=lcd] .stars::after,html[data-theme=lcd] .stars-ro::after{color:var(--ink);text-shadow:none}
+html[data-theme=lcd] .stars,html[data-theme=lcd] .stars-ro{color:var(--case3)}
+html[data-theme=lcd] .ic.star,html[data-theme=lcd] .ptag.wish,html[data-theme=lcd] .pb.wish{color:var(--ink)}
+html[data-theme=lcd] .ptag,html[data-theme=lcd] .tg,html[data-theme=lcd] .ribbon,html[data-theme=lcd] .pb{color:var(--paper)}
+html[data-theme=lcd] .ptag.wish,html[data-theme=lcd] .ktabs .wishtog[aria-pressed=true],html[data-theme=lcd] .pb.wish{background:var(--lcd-hi)}
+html[data-theme=lcd] .pb{background:var(--dark)!important}
+html[data-theme=lcd] .pb.miss{background:none!important;color:var(--muted)}
+html[data-theme=lcd] .loanbox{background:var(--field)}
+html[data-theme=lcd] .clcd,html[data-theme=lcd] .plcd{background:var(--lcd-hi)}
+html[data-theme=lcd] .cblocks i.on{background:var(--ink)}
+html[data-theme=lcd] dialog::backdrop{background:rgba(15,56,15,.55)}
+/* okładki w 4 odcieniach zieleni (duotone) */
+html[data-theme=lcd] .cov{background:var(--ink)}
+html[data-theme=lcd] .cov .art,html[data-theme=lcd] .cov .ph,html[data-theme=lcd] .cov .band,html[data-theme=lcd] .cov .corner,
+html[data-theme=lcd] .res img,html[data-theme=lcd] .variants img{filter:grayscale(1) contrast(1.25) brightness(1.05)}
+html[data-theme=lcd] .cov::after{content:"";position:absolute;inset:0;pointer-events:none;background:#9bbc0f;mix-blend-mode:multiply;z-index:2}
+html[data-theme=lcd] .cov .ctags,html[data-theme=lcd] .cov .ribbon{z-index:3}
+html[data-theme=lcd] .cm.miss .cov,html[data-theme=lcd] .ccell.miss .cov{filter:none;opacity:.35}
+
+/* ---------- CRT: kineskop — ciemno, fosfor, linie skanowania ---------- */
+html[data-theme=crt]{
+  --case:#0c100e; --case2:#18201b; --case3:#243029; --dark:#070a08; --dark2:#000;
+  --paper:#111915; --field:#0a0f0c; --ink:#c9f7d5; --muted:#6fb487; --line:#2b4535; --dots:#1d3025;
+  --tri:#3ee88f; --cir:#ff5c6c; --crs:#5eaaff; --sqr:#ff7ccb; --loan:#ff7ccb; --warn:#ffd24a; --grey:#2b3a31;
+  --glow:rgba(107,227,138,.45);
+}
+html[data-theme=crt] body{background:radial-gradient(ellipse at 50% 40%,#101a14 0%,#0a0e0c 60%,#050706 100%) fixed;
+  text-shadow:0 0 3px var(--glow)}
+/* linie skanowania + winieta kineskopu */
+html[data-theme=crt] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px),
+             radial-gradient(ellipse at 50% 50%,transparent 60%,rgba(0,0,0,.55) 100%)}
+html[data-theme=crt] body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:199;
+  background:repeating-linear-gradient(90deg,rgba(255,0,0,.025) 0 1px,rgba(0,255,0,.02) 1px 2px,rgba(0,0,255,.025) 2px 3px);
+  animation:crtflick 6s infinite steps(1)}
+@keyframes crtflick{0%,100%{opacity:1}50%{opacity:.85}}
+@media (prefers-reduced-motion:reduce){html[data-theme=crt] body::before{animation:none}}
+html[data-theme=crt] .top{background:#050806;box-shadow:inset 0 -2px 0 var(--tri),0 0 18px rgba(62,232,143,.18)}
+html[data-theme=crt] .logo{color:var(--tri);text-shadow:0 0 8px rgba(62,232,143,.8)}
+html[data-theme=crt] .vents{background:repeating-linear-gradient(90deg,#16241b 0 6px,transparent 6px 12px)}
+html[data-theme=crt] .lcdwrap{background:#000;box-shadow:0 0 0 1px var(--line)}
+html[data-theme=crt] .lcd{background:#031108;color:#6be38a;box-shadow:inset 0 0 12px rgba(0,0,0,.9);text-shadow:0 0 6px #6be38a}
+html[data-theme=crt] .lcd::before{background:repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 1px,transparent 1px 3px)}
+html[data-theme=crt] .lcd::after{display:none}
+html[data-theme=crt] .btn{background:#0a130e;color:var(--ink);border:1px solid var(--line);box-shadow:inset 0 0 8px rgba(0,0,0,.6)}
+html[data-theme=crt] .btn.tri{color:var(--tri);border-color:var(--tri);box-shadow:0 0 8px rgba(62,232,143,.35),inset 0 0 8px rgba(62,232,143,.15)}
+html[data-theme=crt] .btn.cir{color:var(--cir);border-color:var(--cir);box-shadow:0 0 8px rgba(255,92,108,.35),inset 0 0 8px rgba(255,92,108,.15);text-shadow:0 0 5px rgba(255,92,108,.7)}
+html[data-theme=crt] .btn.crs{color:var(--crs);border-color:var(--crs);box-shadow:0 0 8px rgba(94,170,255,.35),inset 0 0 8px rgba(94,170,255,.15);text-shadow:0 0 5px rgba(94,170,255,.7)}
+html[data-theme=crt] .btn.sqr{color:var(--sqr);border-color:var(--sqr);box-shadow:0 0 8px rgba(255,124,203,.35);text-shadow:0 0 5px rgba(255,124,203,.7)}
+html[data-theme=crt] .btn.light{background:#0a130e;color:var(--ink)}
+html[data-theme=crt] .btn:hover{filter:brightness(1.3)}
+html[data-theme=crt] input,html[data-theme=crt] select,html[data-theme=crt] textarea,html[data-theme=crt] .search input,html[data-theme=crt] .sel{
+  background-color:#050a07;color:var(--ink);border-color:var(--line);box-shadow:inset 0 0 8px rgba(0,0,0,.7)}
+html[data-theme=crt] .sel{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M0 0h10L5 6z' fill='%233ee88f'/%3E%3C/svg%3E")}
+html[data-theme=crt] .chip,html[data-theme=crt] .tabs button,html[data-theme=crt] .ktabs button,html[data-theme=crt] .seg button{background:#0a130e;border-color:var(--line);color:var(--muted)}
+html[data-theme=crt] .chip[aria-pressed=true],html[data-theme=crt] .ktabs button[aria-pressed=true],html[data-theme=crt] .seg button[aria-pressed=true],
+html[data-theme=crt] .tabs button[aria-pressed=true]{background:rgba(62,232,143,.14);color:var(--tri);border-color:var(--tri);box-shadow:0 0 8px rgba(62,232,143,.3)}
+html[data-theme=crt] .toast,html[data-theme=crt] .tip{background:#06100a;color:var(--tri);border:1px solid var(--tri);box-shadow:0 0 14px rgba(62,232,143,.35)}
+html[data-theme=crt] .toast.err{background:#1a0608;color:var(--cir);border-color:var(--cir)}
+html[data-theme=crt] .manual .hd,html[data-theme=crt] .dh,html[data-theme=crt] .kl,html[data-theme=crt] .chd,html[data-theme=crt] .cch{background:#050806;color:var(--tri);border-bottom:1px solid var(--line);text-shadow:0 0 6px rgba(62,232,143,.7)}
+html[data-theme=crt] .manual .hd .x,html[data-theme=crt] .dh .x{color:var(--tri)}
+html[data-theme=crt] .manual,html[data-theme=crt] .card,html[data-theme=crt] .ccard,html[data-theme=crt] .kpi,html[data-theme=crt] .cprog,html[data-theme=crt] .pricebox{
+  border:1px solid var(--line);box-shadow:0 0 12px rgba(62,232,143,.08),inset 0 0 18px rgba(0,0,0,.5)}
+html[data-theme=crt] .card:hover{box-shadow:0 0 14px rgba(62,232,143,.3)}
+html[data-theme=crt] label.f,html[data-theme=crt] div.f .flabel,html[data-theme=crt] legend{color:var(--muted)}
+html[data-theme=crt] .side h4,html[data-theme=crt] .bar h2,html[data-theme=crt] .st-head h2{color:var(--tri);text-shadow:0 0 8px rgba(62,232,143,.6)}
+html[data-theme=crt] .cart{background:#0a130e;box-shadow:inset 0 0 0 1px var(--line)}
+html[data-theme=crt] .cart .lbl{background:#0d1712;box-shadow:inset 3px 0 8px -4px var(--c)}
+html[data-theme=crt] .cart[aria-pressed=true]{background:rgba(62,232,143,.1)}
+html[data-theme=crt] .cart[aria-pressed=true] .lbl{outline:1px solid var(--tri)}
+html[data-theme=crt] .menu .pop{background:#0a120d;border-color:var(--line)}
+html[data-theme=crt] .menu .pop button:hover{background:rgba(62,232,143,.1);color:var(--tri)}
+html[data-theme=crt] .stars{color:#24352b}
+html[data-theme=crt] .stars::after,html[data-theme=crt] .stars-ro::after{color:#ffd24a;text-shadow:0 0 6px rgba(255,210,74,.7)}
+html[data-theme=crt] .loanbox{background:rgba(255,124,203,.08)}
+html[data-theme=crt] .loanbox.late{background:rgba(255,92,108,.1)}
+html[data-theme=crt] .tg.lang,html[data-theme=crt] .ptag.lang{background:#06100a;color:var(--ink)}
+html[data-theme=crt] .tg.spec,html[data-theme=crt] .ptag.spec{background:#06100a;color:var(--tri);outline:1px solid var(--line)}
+html[data-theme=crt] .ptag.warn,html[data-theme=crt] .pb.wish,html[data-theme=crt] .ptag.wish{color:#1a1200}
+html[data-theme=crt] .ptag.ok{color:#02140a}
+html[data-theme=crt] .clcd,html[data-theme=crt] .plcd{background:#031108;color:#6be38a;text-shadow:0 0 6px #6be38a;box-shadow:inset 0 0 10px #000,0 0 0 1px var(--line)}
+html[data-theme=crt] .cblocks i{background:#16241b}
+html[data-theme=crt] .cblocks i.on{background:var(--tri);box-shadow:0 0 6px rgba(62,232,143,.6)}
+html[data-theme=crt] .pnote{background:rgba(255,210,74,.08);color:var(--warn)}
+html[data-theme=crt] .res,html[data-theme=crt] .variants button,html[data-theme=crt] .res .img{background:#0a130e}
+html[data-theme=crt] dialog{box-shadow:0 0 0 1px var(--line),0 0 40px rgba(62,232,143,.15)}
+html[data-theme=crt] dialog::backdrop{background:rgba(0,0,0,.75)}
+/* okładki jak na ekranie: lekkie linie i poświata */
+html[data-theme=crt] .cov{box-shadow:0 0 10px rgba(120,200,255,.12)}
+html[data-theme=crt] .cov::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px)}
+html[data-theme=crt] .cov .ctags,html[data-theme=crt] .cov .ribbon{z-index:3}
+html[data-theme=crt] .cov.hw{background:#0d1712}
+html[data-theme=crt] .cov.hw .ph{background:linear-gradient(160deg,#1a2a20,#0d1712);color:var(--ink)}
+html[data-theme=lcd] .tg.lang,html[data-theme=lcd] .ptag.lang{color:var(--ink);background:var(--lcd-hi)}
+html[data-theme=lcd] .ptag.shame,html[data-theme=lcd] .tg.shame{background:var(--lcd-hi);color:var(--ink)}
+html[data-theme=crt] .ptag.shame,html[data-theme=crt] .tg.shame{background:#2a1c0e;color:#f0c896}
+/* dodatki v3.7 */
+html[data-theme=lcd] .tier h3{background:var(--ink);color:var(--paper)}
+html[data-theme=lcd] .bronze,html[data-theme=lcd] .silver,html[data-theme=lcd] .gold,html[data-theme=lcd] .platinum{--tc:var(--ink)}
+html[data-theme=lcd] .tcard.got{background:var(--lcd-hi)}
+html[data-theme=lcd] .trt{background:var(--ink);color:var(--paper);border-left-color:var(--lcd-hi)}
+html[data-theme=lcd] .trt .tri2{color:var(--lcd-hi)}
+html[data-theme=lcd] .tprog i{background:var(--ink)}
+html[data-theme=lcd] .pht img,html[data-theme=lcd] .phview img{filter:grayscale(1) contrast(1.1) sepia(1) hue-rotate(40deg) saturate(1.3)}
+html[data-theme=lcd] .ic.sqi{color:var(--ink)}
+html[data-theme=lcd] .cpaid{background:var(--paper)}
+html[data-theme=crt] .tier h3{background:#050806;color:var(--tc);border-bottom:1px solid var(--line);text-shadow:0 0 6px var(--tc)}
+html[data-theme=crt] .tcard{border:1px solid var(--line);border-left:4px solid var(--case3)}
+html[data-theme=crt] .tcard.got{border-left-color:var(--tc);box-shadow:0 0 10px rgba(0,0,0,.4),inset 0 0 12px rgba(0,0,0,.4)}
+html[data-theme=crt] .tcard.got .tcup{filter:drop-shadow(0 0 5px var(--tc))}
+html[data-theme=crt] .trt{background:rgba(3,12,7,.95);border:1px solid var(--line);border-left:5px solid var(--tc);box-shadow:0 0 20px rgba(62,232,143,.25)}
+html[data-theme=crt] .tprog{background:#16241b}
+html[data-theme=crt] .tprog i{background:var(--tri);box-shadow:0 0 6px rgba(62,232,143,.6)}
+html[data-theme=crt] .tsum{border:1px solid var(--line);box-shadow:inset 0 0 18px rgba(0,0,0,.5)}
+html[data-theme=crt] .pht{background:#0a130e;border-color:var(--line)}
+/* v3.8 */
+html[data-theme=lcd] .wscreen{background:var(--ink)}
+html[data-theme=lcd] .wscr{background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 3px var(--dark),inset 0 4px 12px rgba(15,56,15,.4)}
+html[data-theme=lcd] .wk,html[data-theme=lcd] .wbig,html[data-theme=lcd] .wsub,html[data-theme=lcd] .wscr.intro .wbig,html[data-theme=lcd] .wscr.outro .wbig{color:var(--ink);text-shadow:none}
+html[data-theme=lcd] .wscr::after{background:repeating-linear-gradient(0deg,rgba(15,56,15,.08) 0 1px,transparent 1px 3px)}
+html[data-theme=lcd] .wdots i{background:var(--dark)} html[data-theme=lcd] .wdots i.on{background:var(--lcd-hi);box-shadow:none}
+html[data-theme=lcd] .ptag.sale,html[data-theme=lcd] .pb.forsale{background:var(--ink);color:var(--paper)}
+html[data-theme=lcd] .ic.sale{color:var(--ink)}
+html[data-theme=lcd] b.up,html[data-theme=lcd] b.down{color:var(--ink)}
+html[data-theme=crt] .wscreen{background:#050806;border:1px solid var(--line);box-shadow:0 0 20px rgba(62,232,143,.12)}
+html[data-theme=crt] .ptag.sale{background:transparent;color:var(--cir);outline:1px solid var(--cir)}
+html[data-theme=crt] b.up{color:var(--tri)} html[data-theme=crt] b.down{color:var(--cir)}

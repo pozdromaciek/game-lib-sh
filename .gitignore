@@ -1,0 +1,16 @@
+# sekrety i dane — nigdy do repo / secrets and data — never commit
+.env
+config.json
+setup-code
+*.db
+*.db-*
+data/
+covers/
+
+# śmieci / junk
+__pycache__/
+*.pyc
+*.tar.gz
+*.bundle
+.DS_Store
+CLAUDE.md

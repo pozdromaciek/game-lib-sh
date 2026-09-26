@@ -1,0 +1,439 @@
+/* SPDX-License-Identifier: AGPL-3.0-only · Copyright (C) 2026 pozdromaciek — https://github.com/pozdromaciek/game-lib-sh (additional terms: NOTICE) */
+/* ===== Wygląd v3.9: ps2 | x360 | w95 | dmg (html[data-theme]) — bez logo i znaków towarowych, tylko styl ===== */
+@font-face{font-family:"Open Sans";font-weight:400;src:url(/static/fonts/open-sans-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Open Sans";font-weight:400;src:url(/static/fonts/open-sans-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+@font-face{font-family:"Open Sans";font-weight:600;src:url(/static/fonts/open-sans-latin-600-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Open Sans";font-weight:600;src:url(/static/fonts/open-sans-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+@font-face{font-family:"Open Sans";font-weight:700;src:url(/static/fonts/open-sans-latin-700-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Open Sans";font-weight:700;src:url(/static/fonts/open-sans-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+@font-face{font-family:Nunito;font-weight:300;src:url(/static/fonts/nunito-latin-300-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Nunito;font-weight:300;src:url(/static/fonts/nunito-latin-ext-300-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+@font-face{font-family:Nunito;font-weight:400;src:url(/static/fonts/nunito-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Nunito;font-weight:400;src:url(/static/fonts/nunito-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+@font-face{font-family:Nunito;font-weight:700;src:url(/static/fonts/nunito-latin-700-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Nunito;font-weight:700;src:url(/static/fonts/nunito-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+
+/* =====================================================================
+   XBOX 360 „Blades” — jasne, błyszczące panele, zielone ostrza, przyciski A/B/X/Y
+   ===================================================================== */
+html[data-theme=x360]{
+  --case:#e6e9e5; --case2:#d3d7d2; --case3:#bcc1bb; --dark:#3a3e3a; --dark2:#232523;
+  --paper:#ffffff; --field:#f5f6f4; --ink:#1c1f1c; --muted:#666c65; --line:#c8ccc6; --dots:#dde0da;
+  --tri:#e5b000; --cir:#d8262c; --crs:#4ea41d; --sqr:#1f6fd1; --loan:#1f6fd1; --warn:#f08c00; --grey:#7a8079;
+  --xg:#5cc11d; --xg2:#3b8b0c; --xgrad:linear-gradient(#86dd45,#55b21f 48%,#43980f 52%,#3b8b0c);
+}
+html[data-theme=x360] body{font:14.5px/1.45 "Open Sans",system-ui,sans-serif;
+  background:radial-gradient(ellipse 70% 55% at 88% -8%,#fff 0%,rgba(255,255,255,0) 70%),
+             radial-gradient(ellipse 90% 60% at -5% 105%,rgba(92,193,29,.13),rgba(92,193,29,0) 65%),
+             linear-gradient(160deg,#f4f6f3 0%,#e3e7e2 50%,#cfd4ce 100%) fixed}
+html[data-theme=x360] .top{background:linear-gradient(#ffffff,#e4e7e3 52%,#d3d7d2 53%,#dfe2de);color:var(--ink);
+  box-shadow:inset 0 -3px 0 var(--xg),0 3px 12px rgba(0,0,0,.14)}
+html[data-theme=x360] .logo{font:700 19px "Open Sans",sans-serif;letter-spacing:.5px;color:var(--xg2);text-shadow:0 1px 0 #fff}
+html[data-theme=x360] .sym{gap:5px}
+html[data-theme=x360] .sym b{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:50%;font-size:0;
+  box-shadow:inset 0 -2px 3px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.35)}
+html[data-theme=x360] .sym b::before{font:700 12px/1 "Open Sans",sans-serif;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.4)}
+html[data-theme=x360] .sym b:nth-child(1){background:radial-gradient(circle at 35% 28%,#fff6c4,#f2c200 45%,#c79700)}
+html[data-theme=x360] .sym b:nth-child(1)::before{content:"Y"}
+html[data-theme=x360] .sym b:nth-child(2){background:radial-gradient(circle at 35% 28%,#ffb3b3,#e3262c 45%,#a8141a)}
+html[data-theme=x360] .sym b:nth-child(2)::before{content:"B"}
+html[data-theme=x360] .sym b:nth-child(3){background:radial-gradient(circle at 35% 28%,#d4ffb3,#5cc11d 45%,#358207)}
+html[data-theme=x360] .sym b:nth-child(3)::before{content:"A"}
+html[data-theme=x360] .sym b:nth-child(4){background:radial-gradient(circle at 35% 28%,#b9d9ff,#2a7fe0 45%,#1553a6)}
+html[data-theme=x360] .sym b:nth-child(4)::before{content:"X"}
+html[data-theme=x360] .vents{visibility:hidden}
+html[data-theme=x360] .lcdwrap{background:linear-gradient(#4a4e4a,#1a1b1a);border-radius:20px;padding:5px 8px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 1px 3px rgba(0,0,0,.45)}
+html[data-theme=x360] .lcd{background:linear-gradient(#1d201d,#070807);color:#9be45c;font:600 14.5px "Open Sans",sans-serif;letter-spacing:.4px;
+  border-radius:14px;padding:6px 14px;box-shadow:inset 0 0 0 1px #000;text-shadow:0 0 7px rgba(92,193,29,.55)}
+html[data-theme=x360] .lcd::before{display:none}
+html[data-theme=x360] .lcd::after{background:linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.02) 50%,rgba(255,255,255,0) 51%)}
+html[data-theme=x360] .lcdwrap.on .led{background:#7dff3a;box-shadow:0 0 7px #7dff3a}
+html[data-theme=x360] .lcdwrap.off .lcd{background:#111;color:transparent}
+/* przyciski: pastylki z połyskiem, kolory A/B/X/Y (△=Y ○=B ✕=A □=X) */
+html[data-theme=x360] .btn{font:600 13px "Open Sans",sans-serif;text-transform:none;letter-spacing:0;color:var(--ink);border-radius:16px;padding:7px 16px;
+  background:linear-gradient(#ffffff,#eceeeb 50%,#dde0dc 51%,#e8eae7);border:1px solid #b3b8b2;
+  box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(0,0,0,.18)}
+html[data-theme=x360] .btn:active{box-shadow:inset 0 2px 4px rgba(0,0,0,.25)}
+html[data-theme=x360] .btn.crs{background:var(--xgrad);color:#fff;border-color:#347a0b;text-shadow:0 1px 1px rgba(0,0,0,.35)}
+html[data-theme=x360] .btn.cir{background:linear-gradient(#ff6b6b,#e0262c 48%,#c81a20 52%,#b3161b);color:#fff;border-color:#9a1217;text-shadow:0 1px 1px rgba(0,0,0,.35)}
+html[data-theme=x360] .btn.tri{background:linear-gradient(#ffe36b,#f2c200 48%,#e0ad00 52%,#cf9f00);color:#3a2c00;border-color:#b58a00}
+html[data-theme=x360] .btn.sqr{background:linear-gradient(#6fb1ff,#2a7fe0 48%,#1a6bcd 52%,#155cb4);color:#fff;border-color:#124f9c;text-shadow:0 1px 1px rgba(0,0,0,.35)}
+html[data-theme=x360] .btn.light{background:linear-gradient(#ffffff,#f1f2f0)}
+html[data-theme=x360] input,html[data-theme=x360] select,html[data-theme=x360] textarea{background:#fff;border:1px solid #bfc4be;border-radius:5px;box-shadow:inset 0 1px 2px rgba(0,0,0,.1)}
+html[data-theme=x360] .sel{font:600 13px "Open Sans",sans-serif;text-transform:none;letter-spacing:0;border-radius:16px;border:1px solid #b3b8b2;
+  background-color:#fff;box-shadow:inset 0 1px 0 #fff,0 1px 2px rgba(0,0,0,.15)}
+html[data-theme=x360] .search input{border-radius:16px;border:1px solid #b3b8b2;background:#fff;box-shadow:inset 0 1px 3px rgba(0,0,0,.12)}
+html[data-theme=x360] .search input::placeholder{text-transform:none;font-size:13px;letter-spacing:0;font-weight:600}
+/* lewa kolumna jako „ostrza” */
+html[data-theme=x360] .side{border-right:1px solid rgba(0,0,0,.08);background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,.15))}
+html[data-theme=x360] .side h4{font:700 11px "Open Sans",sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--xg2)}
+html[data-theme=x360] .cart{background:linear-gradient(90deg,#ffffff,#eef0ed);border-radius:3px 16px 16px 3px;padding:4px 5px;
+  box-shadow:inset 0 1px 0 #fff,0 1px 3px rgba(0,0,0,.16)}
+html[data-theme=x360] .cart .lbl{background:transparent;font-weight:600}
+html[data-theme=x360] .cart[aria-pressed=true]{background:var(--xgrad);box-shadow:0 2px 8px rgba(59,139,12,.4);transform:translateX(6px)}
+html[data-theme=x360] .cart[aria-pressed=true] .lbl{outline:0;color:#fff;border-left-color:#fff!important;text-shadow:0 1px 1px rgba(0,0,0,.3)}
+html[data-theme=x360] .cart[aria-pressed=true] .lbl span{color:#eaffdb}
+html[data-theme=x360] .cart{transition:transform .15s}
+html[data-theme=x360] .chip{border-radius:12px;background:#fff;border-color:#c3c8c2}
+html[data-theme=x360] .chip[aria-pressed=true],html[data-theme=x360] .ktabs button[aria-pressed=true],html[data-theme=x360] .seg button[aria-pressed=true]{background:var(--xgrad);border-color:#347a0b;color:#fff}
+html[data-theme=x360] .chip[aria-pressed=true] b{color:#eaffdb}
+html[data-theme=x360] .bar h2,html[data-theme=x360] .st-head h2{font:700 22px "Open Sans",sans-serif;letter-spacing:-.2px}
+html[data-theme=x360] .tabs{border-bottom:2px solid var(--xg)}
+html[data-theme=x360] .tabs button{border-radius:10px 10px 0 0;background:linear-gradient(#f6f7f5,#dde0dc);font-weight:600}
+html[data-theme=x360] .tabs button[aria-pressed=true]{background:var(--xgrad);color:#fff}
+html[data-theme=x360] .grp{border-bottom:1px solid #c8ccc6}
+html[data-theme=x360] .grp .gl{font:700 12px/1.4 "Open Sans",sans-serif;letter-spacing:.8px;background:linear-gradient(#555a55,#2e312e);border-radius:3px 12px 12px 3px;padding:4px 14px 4px 10px}
+html[data-theme=x360] .card{border-radius:8px;box-shadow:0 1px 0 #fff inset,0 2px 8px rgba(0,0,0,.13)}
+html[data-theme=x360] .card[aria-current=true]{outline:3px solid var(--xg)}
+html[data-theme=x360] .manual,html[data-theme=x360] dialog{border-radius:10px;overflow:hidden}
+html[data-theme=x360] .manual{box-shadow:0 4px 18px rgba(0,0,0,.14)}
+html[data-theme=x360] .manual .hd,html[data-theme=x360] .dh,html[data-theme=x360] .kl,html[data-theme=x360] .chd,html[data-theme=x360] .cch,html[data-theme=x360] .tier h3{
+  background:var(--xgrad);color:#fff;font:700 13px "Open Sans",sans-serif;letter-spacing:.6px;text-shadow:0 1px 1px rgba(0,0,0,.3)}
+html[data-theme=x360] .dh h2{font:700 14px "Open Sans",sans-serif;letter-spacing:.5px}
+html[data-theme=x360] .menu .pop{border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+html[data-theme=x360] .menu .pop button:hover{background:linear-gradient(90deg,rgba(92,193,29,.22),rgba(92,193,29,0))}
+html[data-theme=x360] .toast{background:linear-gradient(#3a3e3a,#1a1b1a);border-radius:16px;border-left:5px solid var(--xg)}
+html[data-theme=x360] .seg{border-radius:16px;border-color:#b3b8b2}
+html[data-theme=x360] .seg button{font:600 12px "Open Sans";text-transform:none}
+html[data-theme=x360] dialog::backdrop{background:rgba(30,40,30,.45)}
+
+/* =====================================================================
+   PS2 — czarno-granatowa mgła, świecące „wieże”, szklane panele, cienka czcionka
+   ===================================================================== */
+html[data-theme=ps2]{
+  --case:#03050c; --case2:#0e1733; --case3:#1a2a5c; --dark:#03040a; --dark2:#000;
+  --paper:#0c1534; --field:#060b1f; --ink:#e1e8ff; --muted:#8fa3d6; --line:#2a3d7a; --dots:#1c2a58;
+  --tri:#38d39f; --cir:#ff5a6e; --crs:#5b8cff; --sqr:#e27bd0; --loan:#d266c0; --warn:#ffc24a; --grey:#26345f;
+  --glow2:rgba(91,140,255,.55);
+}
+html[data-theme=ps2] body{font:400 15px/1.45 Nunito,system-ui,sans-serif;background:#01020a;
+  background-image:radial-gradient(ellipse 90% 55% at 50% 115%,rgba(35,75,210,.55) 0%,rgba(20,45,140,.25) 40%,rgba(0,0,0,0) 72%),
+                   radial-gradient(ellipse 55% 45% at 12% 5%,rgba(40,80,200,.22),rgba(0,0,0,0) 70%);background-attachment:fixed}
+/* wieże z sześcianów w tle (jak ekran startowy) */
+html[data-theme=ps2] body::before{content:"";position:fixed;left:0;right:0;bottom:0;height:55vh;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(to top,rgba(110,160,255,.16) 0 30%,rgba(110,160,255,0) 30%) 6% 100%/26px 70% no-repeat,
+    linear-gradient(to top,rgba(110,160,255,.12) 0 55%,rgba(110,160,255,0) 55%) 14% 100%/26px 100% no-repeat,
+    linear-gradient(to top,rgba(110,160,255,.14) 0 40%,rgba(110,160,255,0) 40%) 22% 100%/26px 100% no-repeat,
+    linear-gradient(to top,rgba(110,160,255,.10) 0 75%,rgba(110,160,255,0) 75%) 31% 100%/26px 100% no-repeat,
+    linear-gradient(to top,rgba(110,160,255,.15) 0 35%,rgba(110,160,255,0) 35%) 69% 100%/26px 100% no-repeat,
+    linear-gradient(to top,rgba(110,160,255,.11) 0 60%,rgba(110,160,255,0) 60%) 77% 100%/26px 100% no-repeat,
+    linear-gradient(to top,rgba(110,160,255,.13) 0 45%,rgba(110,160,255,0) 45%) 86% 100%/26px 100% no-repeat,
+    linear-gradient(to top,rgba(110,160,255,.09) 0 85%,rgba(110,160,255,0) 85%) 94% 100%/26px 100% no-repeat,
+    repeating-linear-gradient(0deg,rgba(0,0,0,.55) 0 2px,rgba(0,0,0,0) 2px 26px);
+  -webkit-mask-image:linear-gradient(to top,#000 10%,transparent 95%);mask-image:linear-gradient(to top,#000 10%,transparent 95%);
+  filter:blur(.4px);animation:ps2fog 14s ease-in-out infinite alternate}
+@keyframes ps2fog{from{opacity:.65}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){html[data-theme=ps2] body::before{animation:none}}
+html[data-theme=ps2] .top{background:linear-gradient(#11141d,#04050a);color:var(--ink);box-shadow:inset 0 -1px 0 var(--glow2),0 0 24px rgba(40,90,255,.2)}
+html[data-theme=ps2] .logo{font:300 21px Nunito,sans-serif;letter-spacing:6px;color:#d2ddff;text-shadow:0 0 12px rgba(91,140,255,.9)}
+html[data-theme=ps2] .sym b{font-weight:400;text-shadow:0 0 8px currentColor}
+html[data-theme=ps2] .sym b:nth-child(3){color:#8fb0ff}
+/* przód konsoli: poziome żeberka */
+html[data-theme=ps2] .vents{height:26px;background:repeating-linear-gradient(0deg,#1b1f2b 0 2px,#07080d 2px 6px);border-radius:2px;box-shadow:inset 0 0 0 1px #0d1018}
+html[data-theme=ps2] .lcdwrap{background:#000;border-radius:3px;box-shadow:0 0 0 1px #1d2a55,0 0 14px rgba(40,90,255,.15)}
+html[data-theme=ps2] .lcd{background:radial-gradient(ellipse at 50% 0%,#0c1c4a,#030818);color:#9dbdff;font:400 16px Nunito,sans-serif;letter-spacing:1.5px;
+  text-shadow:0 0 7px #5b8cff;box-shadow:inset 0 0 12px rgba(0,0,0,.9)}
+html[data-theme=ps2] .lcd::before{background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 1px,transparent 1px 3px)}
+html[data-theme=ps2] .lcd::after{display:none}
+html[data-theme=ps2] .lcdwrap.on .led{background:#3d7bff;box-shadow:0 0 8px #3d7bff}
+html[data-theme=ps2] .lcdwrap.off .lcd{background:#02040c;color:transparent}
+html[data-theme=ps2] .btn{font:700 12px Nunito,sans-serif;letter-spacing:1.5px;color:var(--ink);border-radius:3px;
+  background:linear-gradient(rgba(70,105,210,.38),rgba(20,35,95,.45));border:1px solid rgba(120,160,255,.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 10px rgba(60,110,255,.14)}
+html[data-theme=ps2] .btn:hover{filter:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 0 16px rgba(91,140,255,.45);border-color:rgba(150,185,255,.7)}
+html[data-theme=ps2] .btn.tri{color:#7ff5cd;border-color:rgba(56,211,159,.6);text-shadow:0 0 6px rgba(56,211,159,.7)}
+html[data-theme=ps2] .btn.cir{color:#ff9aa6;border-color:rgba(255,90,110,.65);text-shadow:0 0 6px rgba(255,90,110,.7)}
+html[data-theme=ps2] .btn.crs{color:#a9c4ff;border-color:rgba(91,140,255,.75);text-shadow:0 0 6px rgba(91,140,255,.8)}
+html[data-theme=ps2] .btn.sqr{color:#f3aee6;border-color:rgba(226,123,208,.6);text-shadow:0 0 6px rgba(226,123,208,.7)}
+html[data-theme=ps2] .btn.light{background:rgba(8,14,38,.8)}
+html[data-theme=ps2] input,html[data-theme=ps2] select,html[data-theme=ps2] textarea,html[data-theme=ps2] .search input,html[data-theme=ps2] .sel{
+  background-color:#050a1c;color:var(--ink);border:1px solid var(--line);border-radius:3px;box-shadow:inset 0 0 10px rgba(0,0,0,.6)}
+html[data-theme=ps2] .sel{font:700 12px Nunito,sans-serif;letter-spacing:1px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M0 0h10L5 6z' fill='%238fb0ff'/%3E%3C/svg%3E")}
+html[data-theme=ps2] .search input::placeholder{letter-spacing:1.5px}
+html[data-theme=ps2] .side{border-right:1px solid #131e44;background:linear-gradient(90deg,rgba(10,18,50,.5),rgba(10,18,50,0))}
+html[data-theme=ps2] .side h4,html[data-theme=ps2] .bar h2,html[data-theme=ps2] .st-head h2{font-family:Nunito,sans-serif;font-weight:300;text-transform:uppercase;color:#c3d3ff;text-shadow:0 0 10px rgba(91,140,255,.7)}
+html[data-theme=ps2] .side h4{font-size:11px;letter-spacing:3px}
+html[data-theme=ps2] .bar h2,html[data-theme=ps2] .st-head h2{font-size:19px;letter-spacing:4px}
+html[data-theme=ps2] .cart{background:rgba(16,30,78,.55);border-radius:3px;box-shadow:inset 0 0 0 1px #213470}
+html[data-theme=ps2] .cart .lbl{background:transparent;font-weight:400;letter-spacing:.3px}
+html[data-theme=ps2] .cart[aria-pressed=true]{background:linear-gradient(90deg,rgba(70,110,240,.45),rgba(40,70,190,.2));box-shadow:inset 0 0 0 1px #5b8cff,0 0 16px rgba(91,140,255,.35)}
+html[data-theme=ps2] .cart[aria-pressed=true] .lbl{outline:0;color:#fff;text-shadow:0 0 8px rgba(140,180,255,.9)}
+html[data-theme=ps2] .chip,html[data-theme=ps2] .tabs button,html[data-theme=ps2] .ktabs button,html[data-theme=ps2] .seg button{background:rgba(10,18,50,.7);border-color:var(--line);color:var(--muted)}
+html[data-theme=ps2] .chip[aria-pressed=true],html[data-theme=ps2] .tabs button[aria-pressed=true],html[data-theme=ps2] .ktabs button[aria-pressed=true],html[data-theme=ps2] .seg button[aria-pressed=true]{
+  background:rgba(91,140,255,.28);color:#fff;border-color:#5b8cff;box-shadow:0 0 10px rgba(91,140,255,.35)}
+html[data-theme=ps2] .tabs{border-bottom:1px solid #22357a}
+html[data-theme=ps2] .grp{border-bottom:1px solid #1a2856}
+html[data-theme=ps2] .grp .gl{font:700 11px/1.4 Nunito,sans-serif;letter-spacing:2.5px;background:rgba(18,34,92,.8);border-left-width:4px}
+html[data-theme=ps2] .card{background:rgba(12,22,58,.62);box-shadow:inset 0 0 0 1px #1f2f63,0 8px 20px rgba(0,0,0,.45)}
+html[data-theme=ps2] .card:hover{box-shadow:inset 0 0 0 1px #4d74e0,0 0 18px rgba(91,140,255,.35)}
+html[data-theme=ps2] .card[aria-current=true]{outline:2px solid #5b8cff;box-shadow:0 0 20px rgba(91,140,255,.5)}
+html[data-theme=ps2] .manual{box-shadow:inset 0 0 0 1px #22357a,0 0 30px rgba(40,90,255,.12)}
+html[data-theme=ps2] .manual .hd,html[data-theme=ps2] .dh,html[data-theme=ps2] .kl,html[data-theme=ps2] .chd,html[data-theme=ps2] .cch,html[data-theme=ps2] .tier h3{
+  background:linear-gradient(90deg,#1d3a9c,#0b1848);color:#e8efff;font:700 12px Nunito,sans-serif;letter-spacing:2.5px;text-transform:uppercase;
+  box-shadow:inset 0 -1px 0 #3f66e0;text-shadow:0 0 8px rgba(140,180,255,.7)}
+html[data-theme=ps2] .dh h2{font:700 13px Nunito,sans-serif;letter-spacing:2.5px}
+html[data-theme=ps2] .manual .hd .x,html[data-theme=ps2] .dh .x{color:#cfe0ff}
+html[data-theme=ps2] label.f,html[data-theme=ps2] div.f .flabel,html[data-theme=ps2] legend{color:var(--muted)}
+html[data-theme=ps2] .menu .pop{background:#0a1230;border-color:var(--line);box-shadow:0 0 30px rgba(40,90,255,.25)}
+html[data-theme=ps2] .menu .pop button:hover{background:rgba(91,140,255,.16);color:#fff}
+html[data-theme=ps2] .toast,html[data-theme=ps2] .tip{background:#0b1433;color:#dfe8ff;border:1px solid #5b8cff;box-shadow:0 0 16px rgba(91,140,255,.35)}
+html[data-theme=ps2] dialog{box-shadow:0 0 0 1px #2a3d7a,0 0 50px rgba(40,90,255,.25)}
+html[data-theme=ps2] dialog::backdrop{background:rgba(0,2,12,.75)}
+html[data-theme=ps2] .stars{color:#22305e}
+html[data-theme=ps2] .ptag.lang,html[data-theme=ps2] .tg.lang{background:#0b1433;color:var(--ink)}
+html[data-theme=ps2] .cov{box-shadow:0 0 14px rgba(60,110,255,.18)}
+
+/* =====================================================================
+   WINDOWS 95 — pulpit morski, szare okna z fazą, granatowe paski tytułu
+   ===================================================================== */
+html[data-theme=w95]{
+  --case:#008080; --case2:#c0c0c0; --case3:#808080; --dark:#000080; --dark2:#000040;
+  --paper:#c0c0c0; --field:#ffffff; --ink:#000; --muted:#404040; --line:#808080; --dots:#808080;
+  --tri:#008000; --cir:#c00000; --crs:#000080; --sqr:#800080; --loan:#800080; --warn:#808000; --grey:#808080;
+  --up:inset -1px -1px #0a0a0a,inset 1px 1px #fff,inset -2px -2px #808080,inset 2px 2px #dfdfdf;
+  --down:inset -1px -1px #fff,inset 1px 1px #0a0a0a,inset -2px -2px #dfdfdf,inset 2px 2px #808080;
+  --field-in:inset -1px -1px #fff,inset 1px 1px #808080,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a;
+  --w95f:Tahoma,"MS Sans Serif","Microsoft Sans Serif",Geneva,Arial,sans-serif;
+}
+html[data-theme=w95] *{text-shadow:none}
+html[data-theme=w95] body{font:13px/1.4 var(--w95f);background:#008080}
+html[data-theme=w95] ::-webkit-scrollbar{width:16px;height:16px}
+html[data-theme=w95] ::-webkit-scrollbar-track{background:repeating-conic-gradient(#c0c0c0 0 25%,#fff 0 50%) 0 0/2px 2px}
+html[data-theme=w95] ::-webkit-scrollbar-thumb{background:#c0c0c0;border:0;border-radius:0;box-shadow:var(--up)}
+html[data-theme=w95] .top{background:#c0c0c0;color:#000;box-shadow:inset 0 1px #dfdfdf,inset 0 2px #fff,inset 0 -1px #0a0a0a,inset 0 -2px #808080;gap:8px;padding:0 6px}
+html[data-theme=w95] .logo{font:700 13px var(--w95f);letter-spacing:0;color:#000;padding:5px 10px;background:#c0c0c0;box-shadow:var(--up);display:inline-flex;align-items:center;gap:6px}
+html[data-theme=w95] .logo::before{content:"";width:16px;height:14px;flex:none;
+  background:linear-gradient(90deg,#c00000 0 50%,#008000 50%) 0 0/100% 50% no-repeat,linear-gradient(90deg,#000080 0 50%,#c0a000 50%) 0 100%/100% 50% no-repeat;
+  transform:skewY(-6deg)}
+html[data-theme=w95] .sym{display:none}
+html[data-theme=w95] .vents{visibility:hidden}
+html[data-theme=w95] .lcdwrap{background:#c0c0c0;border-radius:0;padding:3px 8px;box-shadow:var(--down)}
+html[data-theme=w95] .lcdwrap .led{display:none}
+html[data-theme=w95] .lcd{background:transparent;color:#000;font:13px var(--w95f);box-shadow:none;text-shadow:none;padding:4px 6px;gap:14px}
+html[data-theme=w95] .lcd::before,html[data-theme=w95] .lcd::after{display:none}
+html[data-theme=w95] .lcdwrap.off .lcd{background:transparent;color:transparent}
+html[data-theme=w95] .btn,html[data-theme=w95] .seg button,html[data-theme=w95] .chip,html[data-theme=w95] .tabs button,html[data-theme=w95] .ktabs button{
+  font:13px var(--w95f);text-transform:none;letter-spacing:0;color:#000;background:#c0c0c0;border:0;border-radius:0;box-shadow:var(--up)}
+html[data-theme=w95] .btn{padding:6px 14px;min-height:30px}
+html[data-theme=w95] .btn:hover{filter:none}
+html[data-theme=w95] .btn:active,html[data-theme=w95] .chip[aria-pressed=true],html[data-theme=w95] .seg button[aria-pressed=true],html[data-theme=w95] .ktabs button[aria-pressed=true]{
+  box-shadow:var(--down);background:repeating-conic-gradient(#c0c0c0 0 25%,#fff 0 50%) 0 0/2px 2px;color:#000}
+html[data-theme=w95] .btn.cir{outline:1px solid #000;outline-offset:-1px;font-weight:700}
+html[data-theme=w95] .btn.tri,html[data-theme=w95] .btn.crs,html[data-theme=w95] .btn.sqr,html[data-theme=w95] .btn.light{background:#c0c0c0;color:#000}
+html[data-theme=w95] .btn:focus-visible{outline:1px dotted #000;outline-offset:-5px}
+html[data-theme=w95] .seg{border:0;box-shadow:none;gap:0}
+html[data-theme=w95] .seg button + button{border-left:0}
+html[data-theme=w95] input,html[data-theme=w95] select,html[data-theme=w95] textarea,html[data-theme=w95] .search input{
+  background:#fff;border:0;border-radius:0;box-shadow:var(--field-in);font:13px var(--w95f)}
+html[data-theme=w95] .sel{font:13px var(--w95f);text-transform:none;letter-spacing:0;border:0;border-radius:0;box-shadow:var(--field-in);padding-right:28px;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23c0c0c0'/%3E%3Cpath d='M0 0h16v1H1v15H0z' fill='%23fff'/%3E%3Cpath d='M15 1h1v15H1v-1h14z' fill='%23000'/%3E%3Cpath d='M4 6h8l-4 4z' fill='%23000'/%3E%3C/svg%3E") no-repeat right 3px center/18px 18px}
+html[data-theme=w95] .search input::placeholder{text-transform:none;font:13px var(--w95f);letter-spacing:0;color:#808080}
+html[data-theme=w95] .search svg{color:#000}
+/* okna na pulpicie */
+html[data-theme=w95] .side{background:#c0c0c0;border-right:0;margin:6px 0 6px 6px;box-shadow:var(--up);padding:3px 6px 10px}
+html[data-theme=w95] .main{background:#fff;margin:6px;box-shadow:var(--field-in);padding:12px 16px 30px}
+html[data-theme=w95] .side h4{font:700 12px var(--w95f);letter-spacing:0;color:#fff;background:#000080;margin:8px -3px 8px;padding:3px 6px}
+html[data-theme=w95] .side h4:first-child{margin-top:0}
+html[data-theme=w95] .cart{background:#c0c0c0;border-radius:0;box-shadow:var(--up);padding:3px}
+html[data-theme=w95] .cart .lbl{background:transparent;font:13px var(--w95f);border-radius:0;border-left-width:4px}
+html[data-theme=w95] .cart .lbl span{color:#000;font-weight:400}
+html[data-theme=w95] .cart[aria-pressed=true]{box-shadow:var(--down);background:repeating-conic-gradient(#c0c0c0 0 25%,#fff 0 50%) 0 0/2px 2px}
+html[data-theme=w95] .cart[aria-pressed=true] .lbl{outline:1px dotted #000;outline-offset:-1px;font-weight:700}
+html[data-theme=w95] .bar h2,html[data-theme=w95] .st-head h2{font:700 18px var(--w95f);letter-spacing:0}
+html[data-theme=w95] .bar .sub{color:#404040;font-weight:400}
+html[data-theme=w95] .tabs{border-bottom:0;gap:2px;margin-bottom:10px}
+html[data-theme=w95] .tabs button{box-shadow:inset 1px 1px #fff,inset -1px 0 #0a0a0a,inset -2px 0 #808080,inset 2px 2px #dfdfdf;padding:4px 12px}
+html[data-theme=w95] .tabs button[aria-pressed=true]{font-weight:700;padding-top:6px;margin-top:-2px}
+html[data-theme=w95] .grp{border-bottom:1px solid #808080;box-shadow:0 1px #fff}
+html[data-theme=w95] .grp .gl{font:700 12px/1.4 var(--w95f);letter-spacing:0;background:#000080;border-radius:0;padding:2px 8px 2px 6px}
+/* karty jak ikony w Eksploratorze */
+html[data-theme=w95] .card{background:transparent;box-shadow:none;border-radius:0;padding:4px}
+html[data-theme=w95] .card:hover{transform:none}
+html[data-theme=w95] .card .t{font:13px var(--w95f);text-align:center;padding:1px 2px}
+html[data-theme=w95] .card .m{color:#404040}
+html[data-theme=w95] .card[aria-current=true]{outline:1px dotted #000;outline-offset:0}
+html[data-theme=w95] .card[aria-current=true] .t{background:#000080;color:#fff}
+html[data-theme=w95] .card[aria-current=true] .cov{filter:brightness(.75) sepia(.4) hue-rotate(190deg) saturate(2)}
+/* szczegóły i okna dialogowe */
+html[data-theme=w95] #detail{padding:6px 6px 6px 0}
+html[data-theme=w95] .manual,html[data-theme=w95] dialog,html[data-theme=w95] .menu .pop{background:#c0c0c0;border:0;border-radius:0;box-shadow:var(--up),4px 4px 0 rgba(0,0,0,.25);padding:3px}
+html[data-theme=w95] .manual .hd,html[data-theme=w95] .dh,html[data-theme=w95] .kl,html[data-theme=w95] .chd,html[data-theme=w95] .cch,html[data-theme=w95] .tier h3{
+  background:#000080;color:#fff;font:700 13px var(--w95f);letter-spacing:0;padding:4px 4px 4px 8px;box-shadow:none}
+html[data-theme=w95] .dh h2{font:700 13px var(--w95f);letter-spacing:0}
+html[data-theme=w95] .dh .x{display:inline-flex}
+html[data-theme=w95] .manual .hd .x,html[data-theme=w95] .dh .x{align-items:center;justify-content:center;width:18px;height:16px;padding:0;
+  background:#c0c0c0;color:#000;font:700 11px/1 var(--w95f);box-shadow:var(--up)}
+html[data-theme=w95] label.f,html[data-theme=w95] div.f .flabel,html[data-theme=w95] legend{color:#000;text-transform:none;letter-spacing:0;font-size:12.5px}
+html[data-theme=w95] .menu .pop{padding:2px;min-width:230px}
+html[data-theme=w95] .menu .pop button{font:13px var(--w95f);padding:5px 20px}
+html[data-theme=w95] .menu .pop button:hover{background:#000080;color:#fff}
+html[data-theme=w95] .menu .pop hr{border-top:1px solid #808080;border-bottom:1px solid #fff;margin:3px 2px}
+html[data-theme=w95] .toast,html[data-theme=w95] .tip{background:#ffffe1;color:#000;border:1px solid #000;border-radius:0;font:13px var(--w95f);box-shadow:2px 2px 0 rgba(0,0,0,.3)}
+html[data-theme=w95] dialog::backdrop{background:rgba(0,0,0,.12)}
+html[data-theme=w95] .ptag,html[data-theme=w95] .tg,html[data-theme=w95] .pb{border-radius:0;box-shadow:none}
+html[data-theme=w95] .chip b{color:#800080}
+
+/* =====================================================================
+   GAME BOY (DMG) — szary plastik, granatowa kursywa, bordowe A/B, ramka ekranu,
+   zaokrąglony prawy dolny róg
+   ===================================================================== */
+html[data-theme=dmg]{
+  --case:#cac6c2; --case2:#b8b4b0; --case3:#a29e9a; --dark:#585b69; --dark2:#44475a;
+  --paper:#dcd8d4; --field:#ece9e6; --ink:#20222b; --muted:#5e5c66; --line:#a9a5a1; --dots:#bdb9b5;
+  --tri:#2d3491; --cir:#8e1d4d; --crs:#8e1d4d; --sqr:#3b3b40; --loan:#8e1d4d; --warn:#b3861b; --grey:#7f8191;
+  --navy:#2d3491; --maroon:#8e1d4d; --bezel:#585b69; --pea:#9aa447; --pea-ink:#26311a;
+  --bez-lines:linear-gradient(to bottom,transparent 4px,var(--maroon) 4px 5px,transparent 5px 7px,var(--navy) 7px 8px,transparent 8px);
+}
+html[data-theme=dmg] body{background:radial-gradient(ellipse at 30% 0%,#d6d2ce,#c6c2be 60%,#bbb7b3) fixed}
+html[data-theme=dmg] .top{background:linear-gradient(#d4d0cc,#c4c0bc);color:var(--navy);box-shadow:inset 0 -2px 0 #aaa6a2,inset 0 3px 0 #dfdbd8,0 2px 0 #b2aeaa}
+html[data-theme=dmg] .logo{font:italic 700 20px "Exo 2",sans-serif;letter-spacing:.5px;color:var(--navy)}
+html[data-theme=dmg] .sym b:nth-child(1),html[data-theme=dmg] .sym b:nth-child(3){color:var(--navy)}
+html[data-theme=dmg] .sym b:nth-child(2),html[data-theme=dmg] .sym b:nth-child(4){color:var(--maroon)}
+/* głośnik: skośne szczeliny */
+html[data-theme=dmg] .vents{height:26px;background:repeating-linear-gradient(115deg,transparent 0 9px,#9f9b97 9px 13px);border-radius:3px;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,.08)}
+html[data-theme=dmg] .lcdwrap{background:var(--bez-lines),var(--bezel);border-radius:8px 8px 20px 8px;padding:12px 12px 7px 10px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 1px 0 rgba(255,255,255,.5)}
+html[data-theme=dmg] .lcdwrap.on .led{background:#ff2e2e;box-shadow:0 0 7px #ff2e2e}
+html[data-theme=dmg] .lcd{background:var(--pea);color:var(--pea-ink);box-shadow:inset 0 0 0 2px #7f8836,inset 0 4px 9px rgba(0,0,0,.3);text-shadow:1px 1px 0 rgba(38,49,26,.2)}
+html[data-theme=dmg] .lcdwrap.off .lcd{background:#6f7636}
+html[data-theme=dmg] .btn{font:italic 700 12px "Exo 2",sans-serif;letter-spacing:.8px;color:#fff;border-radius:14px;border:0;
+  background:linear-gradient(#9d9eae,#7f8191);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 2px 0 #676878}
+html[data-theme=dmg] .btn:active{box-shadow:inset 0 2px 3px rgba(0,0,0,.35);transform:translateY(1px)}
+html[data-theme=dmg] .btn.cir,html[data-theme=dmg] .btn.crs{background:radial-gradient(circle at 35% 25%,#c0427a,#8e1d4d 60%,#701339);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 2px 0 #4e0c28}
+html[data-theme=dmg] .btn.tri,html[data-theme=dmg] .btn.sqr{background:linear-gradient(#45454b,#1f1f23);border-radius:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 2px 0 #000}
+html[data-theme=dmg] .btn.light{background:linear-gradient(#f1eeeb,#dcd8d4);color:var(--navy);box-shadow:inset 0 1px 0 #fff,0 2px 0 #aaa6a2}
+html[data-theme=dmg] input,html[data-theme=dmg] select,html[data-theme=dmg] textarea{border-radius:4px}
+html[data-theme=dmg] .sel,html[data-theme=dmg] .search input{border-radius:14px;border-color:#9a9692}
+html[data-theme=dmg] .sel{font:italic 700 12px "Exo 2",sans-serif;color:var(--navy)}
+html[data-theme=dmg] .side{border-right:2px solid #b8b4b0}
+html[data-theme=dmg] .side h4,html[data-theme=dmg] .bar h2,html[data-theme=dmg] .st-head h2{font-family:"Exo 2",sans-serif;font-style:italic;font-weight:700;color:var(--navy);letter-spacing:.5px}
+html[data-theme=dmg] .side h4{font-size:12px;text-transform:uppercase;letter-spacing:1.5px}
+html[data-theme=dmg] .bar h2,html[data-theme=dmg] .st-head h2{font-size:23px}
+/* lista jak kartridże z wycięciem w rogu */
+html[data-theme=dmg] .cart{background:#bebab6;border-radius:3px 0 3px 3px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.35),inset 0 -2px 0 #a29e9a}
+html[data-theme=dmg] .cart .lbl{border-radius:2px;margin-right:6px}
+html[data-theme=dmg] .cart[aria-pressed=true]{background:#8f8b87;box-shadow:inset 0 2px 5px rgba(0,0,0,.3)}
+html[data-theme=dmg] .cart[aria-pressed=true] .lbl{outline:2px solid var(--navy)}
+html[data-theme=dmg] .chip{border-radius:10px}
+html[data-theme=dmg] .chip[aria-pressed=true],html[data-theme=dmg] .ktabs button[aria-pressed=true],html[data-theme=dmg] .seg button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+html[data-theme=dmg] .tabs button{border-radius:8px 8px 0 0;font-style:italic}
+html[data-theme=dmg] .grp{border-bottom:2px solid #b8b4b0}
+html[data-theme=dmg] .grp .gl{font:italic 700 12px/1.4 "Exo 2",sans-serif;letter-spacing:1px;background:var(--bezel);border-radius:3px 3px 10px 3px}
+/* charakterystyczny zaokrąglony prawy dolny róg */
+html[data-theme=dmg] .card{border-radius:4px 4px 22px 4px;background:#d8d4d0;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 3px 0 #aaa6a2}
+html[data-theme=dmg] .card[aria-current=true]{outline:3px solid var(--navy)}
+html[data-theme=dmg] .manual,html[data-theme=dmg] dialog{border-radius:6px 6px 40px 6px;overflow:hidden}
+html[data-theme=dmg] .manual{box-shadow:0 3px 0 #aaa6a2}
+html[data-theme=dmg] .manual .hd,html[data-theme=dmg] .dh,html[data-theme=dmg] .kl,html[data-theme=dmg] .chd,html[data-theme=dmg] .cch,html[data-theme=dmg] .tier h3{
+  background:var(--bez-lines),var(--bezel);color:#eceaff;font:italic 700 13px "Exo 2",sans-serif;letter-spacing:1px;padding-top:14px}
+html[data-theme=dmg] .dh h2{font:italic 700 14px "Exo 2",sans-serif;letter-spacing:1px}
+html[data-theme=dmg] label.f,html[data-theme=dmg] div.f .flabel{color:var(--navy)}
+html[data-theme=dmg] .menu .pop{border-radius:6px 6px 22px 6px;overflow:hidden}
+html[data-theme=dmg] .toast{background:var(--bezel);border-radius:6px 6px 16px 6px}
+/* okładki w odcieniach ekranu DMG */
+html[data-theme=dmg] .cov{background:var(--pea-ink)}
+html[data-theme=dmg] .cov .art,html[data-theme=dmg] .cov .ph,html[data-theme=dmg] .cov .band,html[data-theme=dmg] .cov .corner,
+html[data-theme=dmg] .res img,html[data-theme=dmg] .variants img{filter:grayscale(1) contrast(1.2) brightness(1.08)}
+html[data-theme=dmg] .cov::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--pea);mix-blend-mode:multiply;z-index:2}
+html[data-theme=dmg] .cov .ctags,html[data-theme=dmg] .cov .ribbon{z-index:3}
+html[data-theme=dmg] .cm.miss .cov,html[data-theme=dmg] .ccell.miss .cov{filter:none;opacity:.35}
+
+/* ---------- wybór wyglądu w Menu: siatka 4 × 2 ---------- */
+.thsel.thcol{flex-direction:column;align-items:stretch;gap:7px}
+.thgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.menu .pop .thgrid button{border:1px solid rgba(0,0,0,.35);background:var(--field);color:var(--ink);padding:6px 2px;text-align:center;overflow:hidden;text-overflow:ellipsis;min-height:30px;font:700 10.5px "Exo 2",sans-serif;
+  text-transform:uppercase;letter-spacing:.3px;cursor:pointer;border-radius:2px;white-space:nowrap}
+.menu .pop .thgrid button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+html[data-theme=w95] .menu .pop .thgrid button{border:0;box-shadow:var(--up);background:#c0c0c0;color:#000;font:11px var(--w95f);text-transform:none;border-radius:0}
+html[data-theme=w95] .menu .pop .thgrid button[aria-pressed=true]{box-shadow:var(--down);background:repeating-conic-gradient(#c0c0c0 0 25%,#fff 0 50%) 0 0/2px 2px;color:#000}
+html[data-theme=x360] .menu .pop .thgrid button{border-radius:12px;font:600 11px "Open Sans";text-transform:none}
+html[data-theme=x360] .menu .pop .thgrid button[aria-pressed=true]{background:var(--xgrad);color:#fff;border-color:#347a0b}
+html[data-theme=ps2] .menu .pop .thgrid button{background:rgba(10,18,50,.7);border-color:var(--line);color:var(--muted);font-family:Nunito}
+html[data-theme=ps2] .menu .pop .thgrid button[aria-pressed=true]{background:rgba(91,140,255,.28);color:#fff;border-color:#5b8cff}
+html[data-theme=crt] .menu .pop .thgrid button{background:#0a130e;border-color:var(--line);color:var(--muted)}
+html[data-theme=crt] .menu .pop .thgrid button[aria-pressed=true]{background:rgba(62,232,143,.14);color:var(--tri);border-color:var(--tri)}
+html[data-theme=lcd] .menu .pop .thgrid button[aria-pressed=true]{color:var(--paper)}
+html[data-theme=dmg] .menu .pop .thgrid button{border-radius:10px;font-style:italic}
+html[data-theme=dmg] .menu .pop .thgrid button[aria-pressed=true]{background:var(--navy);color:#fff}
+
+/* ---------- telefon ---------- */
+@media (max-width:760px){
+  html[data-theme=ps2] .logo{font-size:16px;letter-spacing:3px}
+  html[data-theme=ps2] .lcd,html[data-theme=x360] .lcd,html[data-theme=w95] .lcd{font-size:14px;letter-spacing:0;gap:10px;padding-left:10px;padding-right:10px}
+  html[data-theme=ps2] .bar h2,html[data-theme=ps2] .st-head h2{font-size:17px;letter-spacing:3px}
+  html[data-theme=w95] .side{margin:6px 6px 0}
+  html[data-theme=x360] .cart[aria-pressed=true]{transform:none}
+}
+@media (max-width:380px){
+  html[data-theme=ps2] .logo{font-size:13px;letter-spacing:2px}
+  html[data-theme=x360] .logo,html[data-theme=dmg] .logo{font-size:15px}
+  html[data-theme=ps2] .lcd,html[data-theme=x360] .lcd,html[data-theme=w95] .lcd{font-size:11.5px;gap:8px}
+}
+
+/* ---------- podstrony i logowanie ---------- */
+html[data-theme=w95] .stats{background:#fff;margin:6px;box-shadow:var(--field-in)}
+html[data-theme=w95] .tcard{background:#c0c0c0;box-shadow:var(--up)}
+html[data-theme=x360] .login .hd{background:var(--xgrad);font:700 16px "Open Sans",sans-serif;letter-spacing:.5px;box-shadow:none;text-shadow:0 1px 1px rgba(0,0,0,.3)}
+html[data-theme=ps2] .login .hd{background:linear-gradient(90deg,#1d3a9c,#0b1848);font:300 18px Nunito,sans-serif;letter-spacing:5px;box-shadow:inset 0 -1px 0 #3f66e0}
+html[data-theme=w95] .login .hd{background:#000080;font:700 13px var(--w95f);letter-spacing:0;box-shadow:none;padding:5px 8px}
+html[data-theme=dmg] .login .hd{background:var(--bez-lines),var(--bezel);font:italic 700 17px "Exo 2",sans-serif;letter-spacing:.5px;box-shadow:none;padding-top:18px}
+.menu .pop{min-width:290px}
+
+/* =====================================================================
+   RED — ukryty wygląd (kod Konami): czerwony obraz na czerni jak w goglach 3D z lat 90.
+   ===================================================================== */
+html[data-theme=red]{
+  --case:#000; --case2:#140000; --case3:#2a0000; --dark:#0a0000; --dark2:#000;
+  --paper:#0c0000; --field:#050000; --ink:#ff2a2a; --muted:#b01515; --line:#5a0000; --dots:#3a0000;
+  --tri:#ff2a2a; --cir:#ff2a2a; --crs:#ff2a2a; --sqr:#ff2a2a; --loan:#c01010; --warn:#ff5a5a; --grey:#3a0000;
+}
+html[data-theme=red] body{background:#000;color:var(--ink);text-shadow:0 0 4px rgba(255,20,20,.55)}
+html[data-theme=red] body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 1px,transparent 1px 3px)}
+html[data-theme=red] .top{background:#000;box-shadow:inset 0 -2px 0 #ff2a2a,0 0 18px rgba(255,20,20,.25);color:var(--ink)}
+html[data-theme=red] .logo,html[data-theme=red] .sym b{color:#ff2a2a!important}
+html[data-theme=red] .vents{background:repeating-linear-gradient(90deg,#3a0000 0 6px,transparent 6px 12px)}
+html[data-theme=red] .lcdwrap{background:#000;box-shadow:0 0 0 1px #5a0000}
+html[data-theme=red] .lcd{background:#0a0000;color:#ff2a2a;text-shadow:0 0 6px #ff2a2a;box-shadow:inset 0 0 12px #000}
+html[data-theme=red] .lcd::after{display:none}
+html[data-theme=red] .lcdwrap.on .led{background:#ff2a2a;box-shadow:0 0 7px #ff2a2a}
+html[data-theme=red] .btn,html[data-theme=red] .sel,html[data-theme=red] input,html[data-theme=red] select,html[data-theme=red] textarea,
+html[data-theme=red] .chip,html[data-theme=red] .tabs button,html[data-theme=red] .ktabs button,html[data-theme=red] .seg button,html[data-theme=red] .menu .pop .thgrid button{
+  background:#0a0000;color:#ff2a2a;border:1px solid #7a0000;box-shadow:none}
+html[data-theme=red] .btn:hover{box-shadow:0 0 10px rgba(255,20,20,.45)}
+html[data-theme=red] .chip[aria-pressed=true],html[data-theme=red] .tabs button[aria-pressed=true],html[data-theme=red] .ktabs button[aria-pressed=true],
+html[data-theme=red] .seg button[aria-pressed=true],html[data-theme=red] .menu .pop .thgrid button[aria-pressed=true]{background:#ff2a2a;color:#000;text-shadow:none}
+html[data-theme=red] .manual .hd,html[data-theme=red] .dh,html[data-theme=red] .kl,html[data-theme=red] .chd,html[data-theme=red] .cch,html[data-theme=red] .tier h3,html[data-theme=red] .grp .gl{
+  background:#1a0000;color:#ff2a2a;border-bottom:1px solid #5a0000}
+html[data-theme=red] .manual .hd .x,html[data-theme=red] .dh .x{color:#ff2a2a}
+html[data-theme=red] .card,html[data-theme=red] .manual,html[data-theme=red] .kpi,html[data-theme=red] .cart,html[data-theme=red] dialog,html[data-theme=red] .menu .pop{
+  background:#080000;box-shadow:inset 0 0 0 1px #3a0000}
+html[data-theme=red] .cart .lbl{background:transparent;border-left-color:#ff2a2a!important}
+html[data-theme=red] .cart[aria-pressed=true] .lbl{outline:1px solid #ff2a2a}
+html[data-theme=red] .ptag,html[data-theme=red] .tg,html[data-theme=red] .pb,html[data-theme=red] .ribbon{background:#3a0000!important;color:#ff5a5a}
+html[data-theme=red] dialog::backdrop{background:rgba(0,0,0,.8)}
+html[data-theme=red] .cov{background:#000}
+html[data-theme=red] .cov .art,html[data-theme=red] .cov .ph,html[data-theme=red] .cov .band,html[data-theme=red] .cov .corner,
+html[data-theme=red] .res img,html[data-theme=red] .variants img,html[data-theme=red] .pht img{filter:grayscale(1) contrast(1.3)}
+html[data-theme=red] .cov::after{content:"";position:absolute;inset:0;pointer-events:none;background:#ff1a1a;mix-blend-mode:multiply;z-index:2}
+html[data-theme=red] .cov .ctags,html[data-theme=red] .cov .ribbon{z-index:3}
+html[data-theme=red] .stars::after,html[data-theme=red] .stars-ro::after{color:#ff2a2a}
+html[data-theme=red] .stars,html[data-theme=red] .stars-ro{color:#3a0000}
+
+/* easter eggi: potrząśnięcie po kodzie, podskok symboli */
+@keyframes konamishake{0%,100%{transform:none}20%{transform:translate(-6px,2px)}40%{transform:translate(5px,-3px)}60%{transform:translate(-4px,3px)}80%{transform:translate(3px,-2px)}}
+body.konami-shake .app{animation:konamishake .6s ease-in-out}
+body.konami-armed .lcdwrap{box-shadow:0 0 0 2px var(--cir),0 0 14px var(--cir)}
+@keyframes sympop{0%{transform:none}40%{transform:translateY(-6px) scale(1.3)}100%{transform:none}}
+.sym b{display:inline-block;cursor:default;user-select:none}
+.sym b.pop{animation:sympop .35s ease-out}
+@media (prefers-reduced-motion:reduce){body.konami-shake .app,.sym b.pop{animation:none}}
+html[data-theme=w95] .menu .pop .thgrid button{padding:5px 2px;text-align:center}
+html[data-theme=ps2] .menu .pop .thgrid button{letter-spacing:0;font-size:10px;padding:6px 2px}
+html[data-theme=x360] .menu .pop .thgrid button,html[data-theme=dmg] .menu .pop .thgrid button{padding:6px 2px}
+html[data-theme=w95] .menu .pop .thgrid button{font-size:10.5px;white-space:normal;line-height:1.1}

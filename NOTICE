@@ -1,0 +1,69 @@
+Moja kolekcja (game-lib-sh)
+Copyright (C) 2026 pozdromaciek — https://github.com/pozdromaciek
+Original repository: https://github.com/pozdromaciek/game-lib-sh
+
+This program is free software: you can redistribute it and/or modify it under the terms of the
+GNU Affero General Public License version 3 (see LICENSE), with the additional terms below.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General
+Public License for more details.
+
+
+ADDITIONAL TERMS (GNU AGPL v3, section 7)
+=========================================
+
+These terms are added under section 7 of the GNU AGPL v3. They apply to this program and to every
+copy, conveyed version and modified version of it, including versions made available to users over
+a network.
+
+1. Author attribution — section 7(b).
+   The "About" dialog of the user interface (or, in a modified version, an equivalent screen that is
+   reachable from the main menu) is part of the program's Appropriate Legal Notices. It must keep
+   showing, in legible form and without being hidden, obscured or made hard to reach:
+
+       Author: pozdromaciek — https://github.com/pozdromaciek
+       Source code: https://github.com/pozdromaciek/game-lib-sh
+       Licence: GNU AGPL-3.0 with additional terms
+
+   The links must stay working (clickable where the interface supports links). This NOTICE file and
+   the copyright notices in the source files must also be preserved.
+
+2. Marking modified versions — section 7(c).
+   A modified version must not be presented as the original. It must be marked as changed, for
+   example with a different name or a line such as "based on Moja kolekcja by pozdromaciek",
+   in addition to (not instead of) the attribution in point 1.
+
+3. Use of the author's name — section 7(d).
+   The name or nickname of the author ("pozdromaciek") may not be used to endorse or promote a
+   modified version without prior written permission. Keeping the attribution required by point 1
+   is not endorsement.
+
+If you convey this program or a modified version, you must pass these additional terms on with it.
+
+
+DODATKOWE WARUNKI — STRESZCZENIE PO POLSKU (wiążąca jest wersja angielska powyżej)
+===============================================================================
+
+Program jest darmowy i otwarty (GNU AGPL-3.0): możesz go używać, kopiować, zmieniać i udostępniać,
+także jako usługę w sieci — pod warunkiem udostępnienia kodu na tej samej licencji. Do tego:
+
+1. W oknie „O aplikacji” (albo równoważnym ekranie dostępnym z menu) musi zostać widoczna informacja
+   o autorze: pozdromaciek, link do https://github.com/pozdromaciek i do repozytorium. Nie wolno jej
+   usunąć, ukryć ani utrudnić do niej dostępu. Plik NOTICE i informacje o prawach autorskich zostają.
+2. Przeróbka musi być oznaczona jako zmieniona (np. „na podstawie Moja kolekcja autorstwa
+   pozdromaciek”) i nie może udawać oryginału.
+3. Nie wolno używać nicku autora do reklamowania przeróbek bez jego zgody.
+
+
+THIRD-PARTY COMPONENTS
+======================
+
+Fonts in app/static/fonts are licensed under the SIL Open Font License 1.1 (licence files next to
+them): Exo 2, Nunito, Open Sans, Press Start 2P, VT323.
+Python dependencies (FastAPI, Uvicorn, HTTPX, Pillow, ReportLab, cryptography, python-multipart) and
+Tesseract OCR keep their own licences.
+Game data, covers and photos are downloaded at run time from IGDB (Twitch), ScreenScraper, LaunchBox
+Games Database, libretro-thumbnails / libretro-database and Wikimedia Commons, under those services'
+own terms. Console and game names belong to their owners; the themes are inspired by period hardware
+and use no logos.

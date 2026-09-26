@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: AGPL-3.0-only · Copyright (C) 2026 pozdromaciek — https://github.com/pozdromaciek/game-lib-sh (additional terms: NOTICE) -->
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6b6a70">
+  <title>Moja kolekcja – logowanie</title>
+  <link rel="icon" href="/static/icon.svg">
+  <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <script>try{if(localStorage.getItem('appLang')==='en')document.documentElement.lang='en';var t=localStorage.getItem('appTheme'),C={ps2:'#04050a',lcd:'#0f380f',crt:'#050806',dmg:'#c4c0bc',x360:'#dfe2de',w95:'#c0c0c0',red:'#000000'};if(C[t]){document.documentElement.dataset.theme=t;document.querySelector('meta[name=theme-color]').content=C[t]}}catch(e){}</script>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/themes.css">
+  <link rel="stylesheet" href="/static/themes2.css">
+</head>
+<body>
+  <div class="login">
+    <form id="f">
+      <div class="hd">MOJA KOLEKCJA</div>
+      <div class="bd">
+        <label class="f">Hasło
+          <input type="password" id="pw" autocomplete="current-password" autofocus required>
+        </label>
+        <div class="err-msg" id="err"></div>
+        <button class="btn crs" type="submit">✕ Zaloguj</button>
+      </div>
+    </form>
+    <p class="setupfoot">Moja kolekcja · © pozdromaciek · <a href="https://github.com/pozdromaciek/game-lib-sh" target="_blank" rel="noopener">GitHub</a></p>
+  </div>
+  <script src="/static/i18n.js"></script>
+  <script>
+    document.getElementById('f').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const err = document.getElementById('err');
+      err.textContent = '';
+      const r = await fetch('/api/login', {
+        method: 'POST', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({password: document.getElementById('pw').value}),
+      });
+      if (r.ok) location.href = '/';
+      else err.textContent = 'Złe hasło';
+    });
+  </script>
+</body>
+</html>

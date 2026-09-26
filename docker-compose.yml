@@ -1,0 +1,21 @@
+# Moja kolekcja — instalacja:  docker compose up -d
+# Potem: docker logs moja-kolekcja  → kod instalacji, i otwórz http://<adres-serwera>:8080
+services:
+  kolekcja:
+    image: ghcr.io/pozdromaciek/game-lib-sh:latest
+    # build: .            # zamiast obrazu z GHCR możesz zbudować go z tego katalogu
+    container_name: moja-kolekcja
+    ports:
+      - "8080:8080"       # HTTP
+      - "8443:8443"       # HTTPS z lokalnym certyfikatem (Menu → Narzędzia → Bezpieczne połączenie)
+    environment:
+      - TZ=Europe/Warsaw
+    # opcjonalnie: ustawienia z pliku .env (patrz .env.example) — kreator w przeglądarce ich nie wymaga
+    # env_file:
+    #   - .env
+    volumes:
+      - kolekcja-data:/data
+    restart: unless-stopped
+
+volumes:
+  kolekcja-data:
