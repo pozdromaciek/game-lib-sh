@@ -8,3 +8,4 @@ docs
 *.pyc
 *.tar.gz
 data/
+tools

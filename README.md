@@ -1,6 +1,6 @@
 # Moja kolekcja — a self-hosted library for your physical games
 
-**[Polski opis → README.pl.md](README.pl.md)**
+**[Project page](https://pozdromaciek.github.io/game-lib-sh/)** · **[Polski opis → README.pl.md](README.pl.md)**
 
 Keep track of your physical games, consoles and accessories: what you own, what it's worth, what's still on the
 pile of shame and who borrowed your copy of GTA. Runs in a single Docker container on your own server (a Raspberry Pi,

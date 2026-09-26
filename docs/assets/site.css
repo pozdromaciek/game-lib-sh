@@ -1,0 +1,166 @@
+/* Moja kolekcja — project site · © pozdromaciek · AGPL-3.0 (see NOTICE) */
+@font-face{font-family:P2;src:url(fonts/press-start-2p-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:P2;src:url(fonts/press-start-2p-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+@font-face{font-family:VT;src:url(fonts/vt323-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:VT;src:url(fonts/vt323-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+@font-face{font-family:"Exo 2";font-weight:400;src:url(fonts/exo-2-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Exo 2";font-weight:400;src:url(fonts/exo-2-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+@font-face{font-family:"Exo 2";font-weight:600;src:url(fonts/exo-2-latin-600-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Exo 2";font-weight:600;src:url(fonts/exo-2-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+@font-face{font-family:"Exo 2";font-weight:700;src:url(fonts/exo-2-latin-700-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Exo 2";font-weight:700;src:url(fonts/exo-2-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-024F;font-display:swap}
+
+:root{
+  --case:#cfcdc8; --case2:#b9b6af; --case3:#a8a39a; --dark:#6b6a70; --dark2:#55545a; --bezel:#34333a;
+  --paper:#e2e0db; --field:#f0eeea; --ink:#1d1d22; --muted:#55545c; --line:#aaa59c; --dots:#cfc9bd;
+  --tri:#2f9e75; --cir:#d94449; --crs:#3f6cc0; --loan:#b8528f; --sqr:#d98fc4;
+  --lcd:#9bbc0f; --lcdink:#0f380f;
+  --max:1160px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{margin:0}
+body{background:var(--case);color:var(--ink);font:17px/1.55 "Exo 2",system-ui,sans-serif;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--crs)}
+h1,h2,h3{margin:0;line-height:1.2}
+:focus-visible{outline:3px solid var(--crs);outline-offset:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---- górny pasek jak w apce ---- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--dark);box-shadow:inset 0 -4px 0 var(--dark2),0 2px 8px rgba(0,0,0,.18);color:#fff}
+.top .wrap{display:flex;align-items:center;gap:14px;min-height:62px}
+.logo{font-family:P2;font-size:14px;letter-spacing:1px;color:#fff;text-decoration:none;white-space:nowrap}
+.sym{display:flex;gap:6px;font-weight:700;font-size:16px}
+.sym b:nth-child(1){color:#4fd3a2} .sym b:nth-child(2){color:#ff7b7f} .sym b:nth-child(3){color:#8fb4f0} .sym b:nth-child(4){color:var(--sqr)}
+.vents{flex:1;min-width:20px;height:20px;background:repeating-linear-gradient(90deg,var(--dark2) 0 6px,transparent 6px 12px)}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{color:#fff;text-decoration:none;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.6px;padding:8px 10px;border-radius:2px}
+.nav a:hover{background:rgba(255,255,255,.12)}
+.lang{display:flex;border:1px solid rgba(0,0,0,.45);border-radius:2px;overflow:hidden;box-shadow:inset 1px 1px 0 rgba(255,255,255,.2)}
+.lang a{color:#fff;text-decoration:none;font-weight:700;font-size:12px;padding:6px 9px;letter-spacing:.5px}
+.lang a[aria-current]{background:var(--field);color:var(--ink)}
+@media (max-width:860px){.nav{display:none}.vents{display:none}.top .wrap{justify-content:space-between}}
+@media (max-width:420px){.sym{display:none}.logo{font-size:12px}}
+
+/* ---- ekran LCD ---- */
+.lcdwrap{display:flex;align-items:center;gap:9px;padding:6px 10px 6px 9px;border-radius:5px;background:var(--bezel);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.07),inset 0 -2px 0 rgba(0,0,0,.45),0 1px 0 rgba(255,255,255,.14)}
+.led{width:8px;height:8px;border-radius:50%;background:#5cff5c;box-shadow:0 0 6px #5cff5c;flex:none}
+.lcd{position:relative;overflow:hidden;background:var(--lcd);color:var(--lcdink);font-family:VT;font-size:24px;line-height:1;padding:8px 0;border-radius:2px;
+  box-shadow:inset 0 0 0 2px #7f9c0c,inset 0 4px 9px rgba(0,0,0,.32);white-space:nowrap;flex:1;min-width:0}
+.lcd::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(0deg,rgba(15,56,15,.09) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(15,56,15,.05) 0 1px,transparent 1px 3px)}
+.lcd::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(165deg,rgba(255,255,255,.28),rgba(255,255,255,0) 38%)}
+.lcd .run{display:inline-block;padding-left:100%;animation:run 26s linear infinite}
+.lcd .run span{margin-right:36px}
+@keyframes run{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.lcd .run{animation:none;padding-left:14px}}
+
+/* ---- panele z plastiku ---- */
+.panel{background:var(--paper);border-radius:3px;box-shadow:0 3px 0 var(--case2),0 10px 26px rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.6)}
+.phd{background:var(--dark);color:#fff;font-family:P2;font-size:11px;letter-spacing:1px;padding:12px 16px;border-radius:3px 3px 0 0;box-shadow:inset 0 -4px 0 var(--dark2);display:flex;gap:10px;align-items:center}
+.phd .ic{font-family:"Exo 2";font-size:17px;font-weight:700}
+.pbd{padding:18px}
+.ic.tri{color:#4fd3a2}.ic.cir{color:#ff7b7f}.ic.crs{color:#8fb4f0}.ic.sqr{color:var(--sqr)}
+
+/* ---- przyciski ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;text-decoration:none;
+  font:700 14px "Exo 2",sans-serif;text-transform:uppercase;letter-spacing:.6px;color:#fff;
+  background:var(--dark);border:1px solid rgba(0,0,0,.45);border-radius:2px;padding:11px 18px;min-height:46px;
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.35),inset -1px -2px 0 rgba(0,0,0,.25)}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{box-shadow:inset 1px 2px 0 rgba(0,0,0,.3)}
+.btn.tri{background:var(--tri)}.btn.cir{background:var(--cir)}.btn.crs{background:var(--crs)}.btn.sqr{background:var(--loan)}
+.btn.light{background:var(--field);color:var(--ink)}
+.btn.sm{min-height:34px;padding:6px 12px;font-size:12px}
+
+/* ---- hero ---- */
+.hero{padding:40px 0 28px}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:34px;align-items:center}
+.kicker{font-family:P2;font-size:11px;letter-spacing:1px;color:var(--muted);margin-bottom:14px}
+.hero h1{font-size:44px;font-weight:700;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;color:var(--crs)}
+.lead{font-size:19px;margin:16px 0 22px;color:#2c2c33}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0;list-style:none}
+.chips li{background:var(--field);border:1px solid var(--line);border-radius:2px;padding:4px 10px;font-size:14px;font-weight:600}
+.screen{background:var(--bezel);padding:12px;border-radius:6px;box-shadow:inset 0 2px 0 rgba(255,255,255,.07),0 3px 0 #1f1e23,0 16px 36px rgba(0,0,0,.28)}
+.screen img{border-radius:2px}
+.screen .cap{display:flex;justify-content:space-between;color:#b5b3bb;font-family:VT;font-size:18px;padding:8px 2px 0}
+@media (max-width:900px){.hero .grid{grid-template-columns:minmax(0,1fr)}.hero h1{font-size:34px}}
+
+/* ---- sekcje ---- */
+section{padding:34px 0;scroll-margin-top:64px}
+.shd{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.shd h2{font-family:P2;font-size:18px;letter-spacing:1px;line-height:1.4}
+.shd p{margin:6px 0 0;color:var(--muted);max-width:640px}
+.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.feat ul{margin:0;padding-left:20px}
+.feat li{margin:6px 0}
+@media (max-width:980px){.feat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.feat{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- wyglądy ---- */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tabs button{font:700 13px "Exo 2",sans-serif;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;border:1px solid rgba(0,0,0,.35);border-radius:2px;
+  background:var(--field);color:var(--ink);padding:8px 12px;min-height:40px;box-shadow:inset 1px 1px 0 #fff,inset -1px -2px 0 rgba(0,0,0,.12)}
+.tabs button[aria-selected=true]{background:var(--dark);color:#fff;box-shadow:inset 1px 2px 0 rgba(0,0,0,.35)}
+.tabs button.locked{background:#2a2a2f;color:#e7555a;font-family:P2;font-size:11px;letter-spacing:2px}
+.themedesc{margin:12px 2px 0;color:var(--muted);min-height:1.5em}
+.secret{display:grid;place-items:center;aspect-ratio:16/10;background:#0b0b0d;color:#e7555a;font-family:P2;text-align:center;padding:20px;line-height:2;font-size:14px}
+.secret small{display:block;color:#9a9aa3;font:700 18px "Exo 2",sans-serif;letter-spacing:4px;margin-top:10px}
+
+/* ---- telefony ---- */
+.phones{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;align-items:start}
+.phone{background:#1f1e23;border-radius:26px;padding:10px 8px 14px;box-shadow:0 3px 0 #0f0f12,0 14px 28px rgba(0,0,0,.25)}
+.phone img{border-radius:16px}
+.phone figcaption{color:#c9c7cf;text-align:center;font-size:13px;font-weight:600;margin-top:8px}
+@media (max-width:980px){.phones{grid-template-columns:repeat(3,minmax(0,1fr))}.phones figure:nth-child(n+4){display:none}}
+@media (max-width:560px){.phones{grid-template-columns:repeat(2,minmax(0,1fr))}.phones figure:nth-child(3){display:none}}
+figure{margin:0}
+
+/* ---- galeria ---- */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.gallery figure{background:var(--paper);border-radius:3px;box-shadow:0 3px 0 var(--case2);overflow:hidden}
+.gallery button{display:block;width:100%;padding:0;border:0;cursor:zoom-in;background:#000}
+.gallery img{aspect-ratio:16/10;object-fit:cover;object-position:top left;width:100%}
+.gallery figcaption{padding:10px 12px;font-weight:600;font-size:15px}
+.gallery figcaption span{display:block;font-weight:400;color:var(--muted);font-size:14px}
+@media (max-width:900px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.gallery{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- instalacja ---- */
+.steps{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.step h3{font-size:19px;margin-bottom:8px}
+.step p{margin:8px 0}
+.code{position:relative;margin:10px 0}
+.code pre{margin:0;background:#1f1e23;color:#e9e7ee;border-radius:3px;padding:46px 14px 14px;overflow-x:auto;font:15px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
+.code .copy{position:absolute;top:8px;right:8px}
+.code pre .c{color:#9a98a3}
+.note{background:var(--field);border-left:4px solid var(--crs);padding:10px 14px;border-radius:2px;margin-top:14px}
+
+/* ---- FAQ ---- */
+.faq details{background:var(--paper);border-radius:3px;box-shadow:0 2px 0 var(--case2);margin-bottom:10px}
+.faq summary{cursor:pointer;padding:14px 16px;font-weight:700;font-size:17px;list-style:none;display:flex;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"▶";color:var(--crs);font-size:13px;margin-top:4px;transition:transform .15s}
+.faq details[open] summary::before{transform:rotate(90deg)}
+.faq details p{margin:0;padding:0 16px 14px 39px}
+
+/* ---- stopka ---- */
+.foot{background:var(--dark);color:#e9e7ee;margin-top:30px;box-shadow:inset 0 4px 0 var(--dark2)}
+.foot .wrap{padding-top:26px;padding-bottom:30px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px}
+.foot a{color:#fff}
+.foot p{margin:6px 0}
+.foot .small{font-size:14px;color:#c9c7cf}
+@media (max-width:760px){.foot .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- podgląd zdjęcia ---- */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(1400px,96vw);max-height:94vh}
+dialog.lb::backdrop{background:rgba(10,10,14,.86)}
+dialog.lb img{max-height:86vh;width:auto;margin:0 auto;border-radius:3px}
+dialog.lb p{color:#fff;text-align:center;margin:10px 0 0;font-weight:600}
+dialog.lb .x{position:fixed;top:12px;right:12px}

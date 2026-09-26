@@ -1,6 +1,6 @@
 # Moja kolekcja — biblioteka fizycznych gier na własnym serwerze
 
-**[English → README.md](README.md)**
+**[Strona projektu](https://pozdromaciek.github.io/game-lib-sh/pl/)** · **[English → README.md](README.md)**
 
 Spis fizycznych gier, konsol i akcesoriów: co masz, ile to jest warte, co leży na kupce wstydu i komu pożyczyłeś GTA.
 Działa w jednym kontenerze Dockera na Twoim serwerze (Raspberry Pi, stary terminal, NAS), a kolekcja zostaje u Ciebie.
