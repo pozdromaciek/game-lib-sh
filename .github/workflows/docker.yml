@@ -1,13 +1,19 @@
 # Buduje obraz Dockera (amd64 + arm64) i publikuje go w GitHub Container Registry:
 #   ghcr.io/pozdromaciek/game-lib-sh
 # - tag v1.2.3 / v1.0.0-beta.1 → obraz z tą wersją + „latest”
-# - push do main → obraz „main” (wersja rozwojowa)
+# - push do main → obraz „main” (wersja rozwojowa); zmiany tylko w docs/, tools/ i *.md są pomijane
 name: Docker image
 
 on:
   push:
     branches: [main]
     tags: ["v*"]
+    # zmiany tylko w stronie projektu / dokumentacji nie budują obrazu (tagi budują zawsze)
+    paths-ignore:
+      - "docs/**"
+      - "tools/**"
+      - "**.md"
+      - ".github/FUNDING.yml"
   workflow_dispatch:
 
 permissions:
